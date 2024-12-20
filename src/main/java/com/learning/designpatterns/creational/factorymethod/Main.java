@@ -1,4 +1,4 @@
-package com.learning.designpatterns.creational.factorypattern;
+package com.learning.designpatterns.creational.factorymethod;
 
 /**
  * This Main class illustrates the example of factoryDesign Pattern.

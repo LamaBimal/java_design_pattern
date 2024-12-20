@@ -1,4 +1,4 @@
-package com.learning.designpatterns.creational.factorypattern;
+package com.learning.designpatterns.creational.factorymethod;
 
 public class Car implements Vehicle{
     @Override
