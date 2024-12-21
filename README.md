@@ -13,3 +13,6 @@ Creational Design Patterns focus on the process of object creation in software d
 
 1. Singleton
 2. Factory Design Pattern
+3. Prototype Design Pattern
+4. Builder Design Pattern
+   
