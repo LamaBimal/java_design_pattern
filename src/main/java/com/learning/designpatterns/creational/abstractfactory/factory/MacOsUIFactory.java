@@ -5,6 +5,7 @@ import com.learning.designpatterns.creational.abstractfactory.product.Checkbox;
 import com.learning.designpatterns.creational.abstractfactory.product.MacOsButton;
 import com.learning.designpatterns.creational.abstractfactory.product.MacOsCheckbox;
 
+// concrete factory
 public class MacOsUIFactory implements UIFactory{
     @Override
     public Button createButton() {

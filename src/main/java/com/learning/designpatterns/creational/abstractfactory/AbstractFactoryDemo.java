@@ -10,13 +10,6 @@ import com.learning.designpatterns.exception.UnsupportedTypeException;
 // AbstractFactory Design Pattern
 public class AbstractFactoryDemo {
 
-    public static void renderUI(UIFactory factory){
-        Button button = factory.createButton();
-        Checkbox checkbox = factory.createCheckbox();
-        button.render();
-        checkbox.render();
-    }
-
     public static void main(String[] args) {
         String os = "MacOs";
         UIFactory factory = null;
@@ -38,5 +31,12 @@ public class AbstractFactoryDemo {
         }
 
         renderUI(factory);
+    }
+
+    public static void renderUI(UIFactory factory){
+        Button button = factory.createButton();
+        Checkbox checkbox = factory.createCheckbox();
+        button.render();
+        checkbox.render();
     }
 }
