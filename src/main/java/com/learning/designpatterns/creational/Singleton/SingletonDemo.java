@@ -1,11 +1,11 @@
 package com.learning.designpatterns.creational.Singleton;
 
-public class Main {
+public class SingletonDemo {
     public static void main (String[] args){
-        SingletonExample singletonExample = SingletonExample.getInstance();
+        Singleton singletonExample = Singleton.getInstance();
         singletonExample.displayMessage();
 
-        SingletonExample newInstance = SingletonExample.getInstance();
+        Singleton newInstance = Singleton.getInstance();
         if(singletonExample.hashCode() == newInstance.hashCode()){
             System.out.println(" Same Object found");
         }

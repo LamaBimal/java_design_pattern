@@ -6,13 +6,13 @@ package com.learning.designpatterns.creational.Singleton;
  *
  */
 
-public class SingletonExample {
+public class Singleton {
 
-    static SingletonExample instance = new SingletonExample();
+    static Singleton instance = new Singleton();
     // Private constructor refrains to initialization of object by outside of class.
-    private SingletonExample(){}
+    private Singleton(){}
 
-    public static SingletonExample getInstance(){
+    public static Singleton getInstance(){
         return instance;
     }
 
