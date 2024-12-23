@@ -11,7 +11,7 @@
 
 Creational Design Patterns focus on the process of object creation in software development. These patterns make sure that we create things in a way that’s not only easy but also flexible, so we can change them later if we need too. They hide the complicated details of how we put pieces together.
 
-1. Singleton :
+1. Singleton:
 
 ## Intent
 Ensures that a class has only one instance and provides a global point of access to it.
@@ -40,7 +40,7 @@ public class Singleton {
         return INSTANCE;
     }
 }
-
+```
 
 2. Factory Design Pattern :
 
@@ -61,6 +61,7 @@ public class Singleton {
    - Concrete Product: Implements the interface defined by the abstract product.
    - Client: Uses only the interfaces defined by the abstract factory and abstract product.
 
+
 | **Pattern**         | **Key Features**                                       | **Examples**                                  |
 |----------------------|-------------------------------------------------------|----------------------------------------------|
 | Singleton            | Single instance, global access                        | Logger, Configuration Manager                |
@@ -70,23 +71,24 @@ public class Singleton {
 | Prototype            | Object cloning                                        | Shape editing tools, Game object spawning    |
 
    
-# Behavioral Design Patterns in Java
+# Behavioral Design Patterns
 
 Behavioral design patterns are concerned with communication between objects, focusing on how they interact and delegate responsibilities.
 
-1. Chain of Responsibility:
+###1. Chain of Responsibility:
  
  Pass a request along a chain of handlers until one of them processes it. It allows an object to send a request to
  other objects without knowing who is going to handle it.
-  Components of Chain of Responsibility
-   Handler Interface or Abstract class:
-   This is the base class that defines the interface for handling requests and, in many cases, for chaining to the next
+ #### Components of Chain of Responsibility
+* Handler Interface or Abstract class:
+
+   > This is the base class that defines the interface for handling requests and, in many cases, for chaining to the next
    handler of the sequence.
-   Concrete Handlers:
-   These are the classes that implement how the requests are going to handled. They can handle the request or pass it to the
+* Concrete Handlers:
+   > These are the classes that implement how the requests are going to handled. They can handle the request or pass it to the
    next handler in the chain if it is unable to handle that request.
-   Client:
-   The request is first send by the client, who then forwards it to the chain's first handler, which hanlder will finally
+* Client:
+   > The request is first send by the client, who then forwards it to the chain's first handler, which hanlder will finally
    handle the request is unknown to the client.
    
     
