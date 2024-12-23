@@ -70,4 +70,25 @@ public class Singleton {
 | Prototype            | Object cloning                                        | Shape editing tools, Game object spawning    |
 
    
+# Behavioral Design Patterns in Java
+
+Behavioral design patterns are concerned with communication between objects, focusing on how they interact and delegate responsibilities.
+
+1. Chain of Responsibility:
+ 
+ Pass a request along a chain of handlers until one of them processes it. It allows an object to send a request to
+ other objects without knowing who is going to handle it.
+  Components of Chain of Responsibility
+   Handler Interface or Abstract class:
+   This is the base class that defines the interface for handling requests and, in many cases, for chaining to the next
+   handler of the sequence.
+   Concrete Handlers:
+   These are the classes that implement how the requests are going to handled. They can handle the request or pass it to the
+   next handler in the chain if it is unable to handle that request.
+   Client:
+   The request is first send by the client, who then forwards it to the chain's first handler, which hanlder will finally
+   handle the request is unknown to the client.
+   
+    
+ 
 
