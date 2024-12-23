@@ -12,7 +12,36 @@
 Creational Design Patterns focus on the process of object creation in software development. These patterns make sure that we create things in a way that’s not only easy but also flexible, so we can change them later if we need too. They hide the complicated details of how we put pieces together.
 
 1. Singleton :
-    
+
+## Intent
+Ensures that a class has only one instance and provides a global point of access to it.
+
+---
+
+## Key Features
+- Restricts instantiation of a class to one object.
+- Provides a global point of access to the instance.
+- Controls concurrent access in multi-threaded environments.
+
+---
+
+## Implementation in Java
+
+### Eager Initialization
+```java
+public class Singleton {
+    private static final Singleton INSTANCE = new Singleton();
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static Singleton getInstance() {
+        return INSTANCE;
+    }
+}
+
+
 2. Factory Design Pattern :
 
 3. Prototype Design Pattern :
@@ -31,6 +60,14 @@ Creational Design Patterns focus on the process of object creation in software d
    - Abstract Product: Declares an interface for a type of product object.
    - Concrete Product: Implements the interface defined by the abstract product.
    - Client: Uses only the interfaces defined by the abstract factory and abstract product.
+
+| **Pattern**         | **Key Features**                                       | **Examples**                                  |
+|----------------------|-------------------------------------------------------|----------------------------------------------|
+| Singleton            | Single instance, global access                        | Logger, Configuration Manager                |
+| Factory Method       | Interface for creating objects, subclass decides type | Shape creation, Database connections         |
+| Abstract Factory     | Families of related objects, no concrete classes      | GUI Toolkits, Cross-platform applications    |
+| Builder              | Step-by-step object construction                      | Document generators, Configurations          |
+| Prototype            | Object cloning                                        | Shape editing tools, Game object spawning    |
 
    
 
