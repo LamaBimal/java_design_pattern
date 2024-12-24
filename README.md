@@ -103,5 +103,10 @@ particularly useful in scenarios where you need to decouple the sender and recei
 * Receiver: The object that performs the actual work.
 * Invoker: Sends the command to execute
 * Client: Creates the command and associates it with the invoker.
-  
+
+#### Real-World Application
+1. **Restaurant Systems:** To manage food orders.
+2. **Home Automation:** Turning devices on/off with remote controls (e.g., lights, AC).
+3. **Banking Systems:** Managing customer transactions like withdrawals and deposits.
+4. **Game Development:** Implementing undo/redo operations for player actions
 
