@@ -110,3 +110,104 @@ particularly useful in scenarios where you need to decouple the sender and recei
 3. **Banking Systems:** Managing customer transactions like withdrawals and deposits.
 4. **Game Development:** Implementing undo/redo operations for player actions
 
+# Example: Restaurant Ordering System
+
+## Scenario
+- **Waiter**: Acts as the **Invoker**, receiving orders and passing them to the kitchen.
+- **Order**: Each command (e.g., "Make Pizza," "Make Pasta").
+- **Kitchen**: The **Receiver**, which executes the commands.
+- **Customer**: The client who specifies the orders.
+
+---
+
+## Implementation in Java
+
+### 1. Command Interface
+Defines the structure for commands.
+```java
+public interface Order {
+    void execute();
+}
+```
+### 2. Receiver
+```
+class Kitchen {
+    public void makePizza() {
+        System.out.println("Making a Pizza!");
+    }
+
+    public void makePasta() {
+        System.out.println("Making Pasta!");
+    }
+}
+```
+### 3. Command concrete class
+```
+class PizzaOrder implements Order {
+    private Kitchen kitchen;
+
+    public PizzaOrder(Kitchen kitchen) {
+        this.kitchen = kitchen;
+    }
+
+    @Override
+    public void execute() {
+        kitchen.makePizza();
+    }
+}
+
+class PastaOrder implements Order {
+    private Kitchen kitchen;
+
+    public PastaOrder(Kitchen kitchen) {
+        this.kitchen = kitchen;
+    }
+
+    @Override
+    public void execute() {
+        kitchen.makePasta();
+    }
+}
+```
+### 4. Invoker
+```
+class Waiter {
+    private Order order;
+
+    public void takeOrder(Order order) {
+        this.order = order;
+    }
+
+    public void placeOrder() {
+        if (order != null) {
+            order.execute();
+        }
+    }
+}
+```
+### 5. Demo Class
+
+```
+public class Restaurant {
+    public static void main(String[] args) {
+        // Receiver: Kitchen
+        Kitchen kitchen = new Kitchen();
+
+        // Commands
+        Order pizzaOrder = new PizzaOrder(kitchen);
+        Order pastaOrder = new PastaOrder(kitchen);
+
+        // Invoker: Waiter
+        Waiter waiter = new Waiter();
+
+        // Customer orders pizza
+        waiter.takeOrder(pizzaOrder);
+        waiter.placeOrder();
+
+        // Customer orders pasta
+        waiter.takeOrder(pastaOrder);
+        waiter.placeOrder();
+    }
+}
+```
+
