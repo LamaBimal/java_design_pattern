@@ -75,7 +75,7 @@ public class Singleton {
 
 Behavioral design patterns are concerned with communication between objects, focusing on how they interact and delegate responsibilities.
 
-###1. Chain of Responsibility:
+### 1. Chain of Responsibility:
  
  Pass a request along a chain of handlers until one of them processes it. It allows an object to send a request to
  other objects without knowing who is going to handle it.
