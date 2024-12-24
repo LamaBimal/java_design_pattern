@@ -92,5 +92,16 @@ Behavioral design patterns are concerned with communication between objects, foc
    handle the request is unknown to the client.
    
     
- 
+### Command Design Pattern:
+The command Design Pattern is a behavioral design pattern that encapsulates a request as an object thereby allowing you to parameterize clients with queues, requests, and operations. This pattern is
+particularly useful in scenarios where you need to decouple the sender and receiver of a request.
+
+**Key Concepts:**
+* Command Interface: Declares the execute() method
+* Concrete Command: Implements the command interface and defines the binding between the 
+  receiver and an action.
+* Receiver: The object that performs the actual work.
+* Invoker: Sends the command to execute
+* Client: Creates the command and associates it with the invoker.
+  
 
