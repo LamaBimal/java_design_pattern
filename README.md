@@ -129,7 +129,7 @@ public interface Order {
 }
 ```
 #### 2. Receiver
-```
+```java
 class Kitchen {
     public void makePizza() {
         System.out.println("Making a Pizza!");
@@ -141,7 +141,7 @@ class Kitchen {
 }
 ```
 #### 3. Command concrete class
-```
+```java
 class PizzaOrder implements Order {
     private Kitchen kitchen;
 
@@ -169,7 +169,7 @@ class PastaOrder implements Order {
 }
 ```
 #### 4. Invoker
-```
+```java
 class Waiter {
     private Order order;
 
@@ -186,7 +186,7 @@ class Waiter {
 ```
 ### 5. Demo Class
 
-```
+```java
 public class Restaurant {
     public static void main(String[] args) {
         // Receiver: Kitchen
