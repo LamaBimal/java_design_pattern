@@ -210,4 +210,12 @@ public class Restaurant {
     }
 }
 ```
+### 3. Iterator Design Pattern
+It is the behaviour design pattern that provide access to it's elements of collection sequentially without exposing the underlying representation. This pattern is used to iterate over the collections like array, list and custom data structures.
+
+**Key Components**
+1. **Iterator Interface:** Defines methods like hasNext() and next() for traversing the elements
+2. **Concrete Iterator:** Implements the iterator interface for a specific collection.
+3. **Aggregate Interface:** Defines a method to create an iterator Object.
+4. **Concrete Aggregate:** Implements the aggregate interface and provides an implementation to return an iterator for its collection.
 
