@@ -218,3 +218,19 @@ It is the behaviour design pattern that provide access to it's elements of colle
 3. **Aggregate Interface:** Defines a method to create an iterator Object.
 4. **Concrete Aggregate:** Implements the aggregate interface and provides an implementation to return an iterator for its collection.
 
+## Mediator Design Pattern
+
+The Mediator Pattern is a behavioral design pattern that promotes loose coupling between components (colleagues) by introducing a mediator object. Instead of components communicating directly with each other, they interact with the mediator, which manages the communication. This pattern simplifies the dependencies between objects, making the system more maintainable and scalable.
+
+### Key Concepts
+
+**Mediator:**
+- The central object that facilitates communication between other objects.
+- Encapsulates how a set of objects interact.
+
+**Colleagues:**
+
+- The objects that communicate indirectly through the mediator.
+- Do not interact directly with one another.
+
+
