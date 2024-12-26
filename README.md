@@ -13,19 +13,18 @@ Creational Design Patterns focus on the process of object creation in software d
 
 1. Singleton:
 
-## Intent
+#### Intent
 Ensures that a class has only one instance and provides a global point of access to it.
 
 ---
 
-## Key Features
+#### Key Features
 - Restricts instantiation of a class to one object.
 - Provides a global point of access to the instance.
 - Controls concurrent access in multi-threaded environments.
 
 ---
-
-## Implementation in Java
+#### Implementation in Java
 
 ### Eager Initialization
 ```java
@@ -75,7 +74,7 @@ public class Singleton {
 
 Behavioral design patterns are concerned with communication between objects, focusing on how they interact and delegate responsibilities.
 
-### 1. Chain of Responsibility:
+## 1. Chain of Responsibility:
  
  Pass a request along a chain of handlers until one of them processes it. It allows an object to send a request to
  other objects without knowing who is going to handle it.
@@ -92,7 +91,7 @@ Behavioral design patterns are concerned with communication between objects, foc
    handle the request is unknown to the client.
    
     
-### Command Design Pattern:
+## Command Design Pattern:
 The command Design Pattern is a behavioral design pattern that encapsulates a request as an object thereby allowing you to parameterize clients with queues, requests, and operations. This pattern is
 particularly useful in scenarios where you need to decouple the sender and receiver of a request.
 
@@ -110,9 +109,9 @@ particularly useful in scenarios where you need to decouple the sender and recei
 3. **Banking Systems:** Managing customer transactions like withdrawals and deposits.
 4. **Game Development:** Implementing undo/redo operations for player actions
 
-# Example: Restaurant Ordering System
+### Example: Restaurant Ordering System
 
-## Scenario
+#### Scenario
 - **Waiter**: Acts as the **Invoker**, receiving orders and passing them to the kitchen.
 - **Order**: Each command (e.g., "Make Pizza," "Make Pasta").
 - **Kitchen**: The **Receiver**, which executes the commands.
@@ -120,17 +119,17 @@ particularly useful in scenarios where you need to decouple the sender and recei
 
 ---
 
-## Implementation in Java
+### Implementation in Java
 
-### 1. Command Interface
+#### 1. Command Interface
 Defines the structure for commands.
 ```java
 public interface Order {
     void execute();
 }
 ```
-### 2. Receiver
-```
+#### 2. Receiver
+```java
 class Kitchen {
     public void makePizza() {
         System.out.println("Making a Pizza!");
@@ -141,8 +140,8 @@ class Kitchen {
     }
 }
 ```
-### 3. Command concrete class
-```
+#### 3. Command concrete class
+```java
 class PizzaOrder implements Order {
     private Kitchen kitchen;
 
@@ -169,8 +168,8 @@ class PastaOrder implements Order {
     }
 }
 ```
-### 4. Invoker
-```
+#### 4. Invoker
+```java
 class Waiter {
     private Order order;
 
@@ -187,7 +186,7 @@ class Waiter {
 ```
 ### 5. Demo Class
 
-```
+```java
 public class Restaurant {
     public static void main(String[] args) {
         // Receiver: Kitchen
@@ -210,7 +209,7 @@ public class Restaurant {
     }
 }
 ```
-### 3. Iterator Design Pattern
+## Iterator Design Pattern
 It is the behaviour design pattern that provide access to it's elements of collection sequentially without exposing the underlying representation. This pattern is used to iterate over the collections like array, list and custom data structures.
 
 **Key Components**
@@ -218,4 +217,20 @@ It is the behaviour design pattern that provide access to it's elements of colle
 2. **Concrete Iterator:** Implements the iterator interface for a specific collection.
 3. **Aggregate Interface:** Defines a method to create an iterator Object.
 4. **Concrete Aggregate:** Implements the aggregate interface and provides an implementation to return an iterator for its collection.
+
+## Mediator Design Pattern
+
+The Mediator Pattern is a behavioral design pattern that promotes loose coupling between components (colleagues) by introducing a mediator object. Instead of components communicating directly with each other, they interact with the mediator, which manages the communication. This pattern simplifies the dependencies between objects, making the system more maintainable and scalable.
+
+### Key Concepts
+
+**Mediator:**
+- The central object that facilitates communication between other objects.
+- Encapsulates how a set of objects interact.
+
+**Colleagues:**
+
+- The objects that communicate indirectly through the mediator.
+- Do not interact directly with one another.
+
 
