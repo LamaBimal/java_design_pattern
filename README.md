@@ -233,15 +233,15 @@ The Mediator Pattern is a behavioral design pattern that promotes loose coupling
 - The objects that communicate indirectly through the mediator.
 - Do not interact directly with one another.
 
-## Momento Design Pattern
+## Memento Design Pattern
 This is a behavior design pattern that provides the ability to restore the state of an object to previous state. It is particulary useful when an object state needs to be saved and restored without violating encapsulation.
 
 ### Key Components
 
 1. Originator
 - The object whose state is being saved and restored.
-- Create a Momento object to capture it's current state.
-- Uses the Momento to restore them.
+- Create a Memento object to capture it's current state.
+- Uses the Memento to restore them.
 
 2. Momento
 - Store the state of Originator
@@ -249,14 +249,14 @@ This is a behavior design pattern that provides the ability to restore the state
 - Can be two types: narrow (accessed only by caretaker) and wide (accessed by Originator)
 
 3. CareTaker
-- Manages the Momento Objects
-- Requests the Originator to save its state and later use the momento to restore it's state.
-- Doesn't modify or inspect the content of Momento
+- Manages the Memento Objects
+- Requests the Originator to save its state and later use the memento to restore it's state.
+- Doesn't modify or inspect the content of Memento
 
 ### Structure
-1. The **Originator** generates and consumes **Momento** Objects
-2. The **Caretaker** request **Momento** from the Originator and store it for the later use.
-3. The **Caretaker** passes the **Momento** back to the **Originator** to restore the state.
+1. The **Originator** generates and consumes **Memento** Objects
+2. The **Caretaker** request **Memento** from the Originator and store it for the later use.
+3. The **Caretaker** passes the **Memento** back to the **Originator** to restore the state.
 
 ### Applications of Memento Pattern in Java
 1. Undo/Redo functionality (e.g., text editors).
