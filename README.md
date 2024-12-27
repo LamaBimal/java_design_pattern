@@ -258,6 +258,8 @@ This is a behavior design pattern that provides the ability to restore the state
 2. The **Caretaker** request **Momento** from the Originator and store it for the later use.
 3. The **Caretaker** passes the **Momento** back to the **Originator** to restore the state.
 
-
-
+### Applications of Memento Pattern in Java
+1. Undo/Redo functionality (e.g., text editors).
+2. Checkpoint systems (e.g., games or transactional systems).
+3. State restoration for error recovery in applications.
 
