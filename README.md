@@ -268,11 +268,94 @@ This is a behavioral design pattern that establishes the one-to-many dependency 
 
 ### Key Concepts
 
-**Subject**
-1. Maintain a list of observer
-2. provides methods to attach, detach and notify observers.
-   
-**Observer**
-An interface or abstract class that defines the method for updating the observers state based on the change in the subject.
+1. **Subject**
+ > Maintain a list of observer
+ >  provides methods to attach, detach and notify observers.
 
+2. **Observer**
+ > An interface or abstract class that defines the method for updating the observers state based on the change in the subject.
+
+### Implementation in Java
+
+1. Observer
+``` java
+  // Observer interface
+public interface Observer {
+    void update(String message);
+}
+```
+2. Concrete Class
+
+``` java
+// Concrete Observer
+public class EmailNotifier implements Observer {
+    @Override
+    public void update(String message) {
+        System.out.println("Email Notifier received message: " + message);
+    }
+}
+
+// Another Concrete Observer
+public class SMSNotifier implements Observer {
+    @Override
+    public void update(String message) {
+        System.out.println("SMS Notifier received message: " + message);
+    }
+}
+```
+
+3. Subject class
+
+```java
+// Subject interface
+import java.util.ArrayList;
+import java.util.List;
+
+public class Subject {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers(String message) {
+        for (Observer observer : observers) {
+            observer.update(message);
+        }
+    }
+}
+
+```
+
+4. Demo Class:
+
+```java
+ public class Demo {
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+
+        // Create observers
+        Observer emailObserver = new EmailNotifier();
+        Observer smsObserver = new SMSNotifier();
+
+        // Attach observers to subject
+        subject.attach(emailObserver);
+        subject.attach(smsObserver);
+
+        // Notify observers
+        subject.notifyObservers("An important event has occurred!");
+
+        // Detach one observer
+        subject.detach(smsObserver);
+
+        // Notify observers again
+        subject.notifyObservers("Another event has occurred!");
+    }
+}
+
+```
 
