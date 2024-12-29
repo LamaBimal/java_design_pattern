@@ -263,3 +263,16 @@ This is a behavior design pattern that provides the ability to restore the state
 2. Checkpoint systems (e.g., games or transactional systems).
 3. State restoration for error recovery in applications.
 
+## Observer Design Pattern
+This is a behavioral design pattern that establishes the one-to-many dependency between objects. When one object (subject) changes its state, it will notify to all dependent objects and update automatically.
+
+### Key Concepts
+
+**Subject**
+1. Maintain a list of observer
+2. provides methods to attach, detach and notify observers.
+   
+**Observer**
+An interface or abstract class that defines the method for updating the observers state based on the change in the subject.
+
+
