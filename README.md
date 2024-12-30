@@ -268,11 +268,186 @@ This is a behavioral design pattern that establishes the one-to-many dependency 
 
 ### Key Concepts
 
-**Subject**
-1. Maintain a list of observer
-2. provides methods to attach, detach and notify observers.
+1. **Subject**
+ > Maintain a list of observer
+ >  provides methods to attach, detach and notify observers.
+
+2. **Observer**
+ > An interface or abstract class that defines the method for updating the observers state based on the change in the subject.
+
+### Implementation in Java
+
+1. Observer
+``` java
+  // Observer interface
+public interface Observer {
+    void update(String message);
+}
+```
+2. Concrete Class
+
+``` java
+// Concrete Observer
+public class EmailNotifier implements Observer {
+    @Override
+    public void update(String message) {
+        System.out.println("Email Notifier received message: " + message);
+    }
+}
+
+// Another Concrete Observer
+public class SMSNotifier implements Observer {
+    @Override
+    public void update(String message) {
+        System.out.println("SMS Notifier received message: " + message);
+    }
+}
+```
+
+3. Subject class
+
+```java
+// Subject interface
+import java.util.ArrayList;
+import java.util.List;
+
+public class Subject {
+    private List<Observer> observers = new ArrayList<>();
+
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers(String message) {
+        for (Observer observer : observers) {
+            observer.update(message);
+        }
+    }
+}
+
+```
+
+4. Demo Class:
+
+```java
+ public class Demo {
+    public static void main(String[] args) {
+        Subject subject = new Subject();
+
+        // Create observers
+        Observer emailObserver = new EmailNotifier();
+        Observer smsObserver = new SMSNotifier();
+
+        // Attach observers to subject
+        subject.attach(emailObserver);
+        subject.attach(smsObserver);
+
+        // Notify observers
+        subject.notifyObservers("An important event has occurred!");
+
+        // Detach one observer
+        subject.detach(smsObserver);
+
+        // Notify observers again
+        subject.notifyObservers("Another event has occurred!");
+    }
+}
+
+```
+## Strategy Design Pattern
+It is a behavioral design pattern that allows to define a family of algorithms or behaviors, put each of them in a separate class, and make them interchangable in runtime.
+This pattern is useful when you want to dynamically change the behavior of class without modifying its class.
+
+### Components
+1. **Strategy Interface**:
+  - Defines a common interface for all concrete strategies.
+
+``` java
+    interface DiscountStrategy {
+       double applyDiscount(double price);
+     }
+```
    
-**Observer**
-An interface or abstract class that defines the method for updating the observers state based on the change in the subject.
+2. **Concrete Strategy**:
+ - Implement the Strategy interface with specific algorithm logic.
 
+ Concrete Strategy 1: No Discount
+  ``` java
+     class NoDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double price) {
+        return price; // No discount applied
+    }
+}
+  ```
+Concrete Strategy 2: Regular Customer Discount
+ ``` java
+   class RegularCustomerDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double price) {
+        return price * 0.9; // 10% discount
+    }
+}
+```
+Concrete Strategy 3: VIP Customer Discount
 
+``` java
+ class VIPCustomerDiscount implements DiscountStrategy {
+    @Override
+    public double applyDiscount(double price) {
+        return price * 0.8; // 20% discount
+    }
+}
+
+```
+
+3. **Context Class**:
+ - Maintains a reference to a Strategy object and delegates behavior to it.
+
+``` java
+class ShoppingCart {
+    private DiscountStrategy discountStrategy;
+
+    // Constructor
+    public ShoppingCart(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+
+    // Set a new strategy
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+
+    // Calculate final price
+    public double calculatePrice(double price) {
+        return discountStrategy.applyDiscount(price);
+    }
+}
+
+```
+
+4. **Demo Class**:
+``` java
+public class StrategyPatternExample {
+    public static void main(String[] args) {
+        double price = 100.0;
+
+        // Using No Discount
+        ShoppingCart cart = new ShoppingCart(new NoDiscount());
+        System.out.println("Price with No Discount: $" + cart.calculatePrice(price));
+
+        // Using Regular Customer Discount
+        cart.setDiscountStrategy(new RegularCustomerDiscount());
+        System.out.println("Price with Regular Customer Discount: $" + cart.calculatePrice(price));
+
+        // Using VIP Customer Discount
+        cart.setDiscountStrategy(new VIPCustomerDiscount());
+        System.out.println("Price with VIP Customer Discount: $" + cart.calculatePrice(price));
+    }
+}
+
+```
