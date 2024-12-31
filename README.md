@@ -462,10 +462,69 @@ changing its structure. This promotes code reuse and enforces a standard way of 
 1. **Abstract Class**
    - Defines the template method (the skeleton of an algorithm) and provide default implementations for some steps.
    - Declars abstract methods for steps that subclass should implement.
+  
+  ``` java
+     // Abstract Class (Template)
+abstract class DataProcessor {
+    // Template method (final to prevent overriding)
+    public final void processData() {
+        loadData();
+        process();
+        saveData();
+    }
+
+    // Common steps
+    private void loadData() {
+        System.out.println("Loading data...");
+    }
+
+    private void saveData() {
+        System.out.println("Saving processed data...");
+    }
+
+    // Abstract method for processing data
+    protected abstract void process();
+}
+
+```
      
 2. **Concrete Classes**
    - Implement the abstract methods and provide specific behavior for those steps.
-  
+
+``` java
+// Concrete Class: CSV Data Processor
+class CSVDataProcessor extends DataProcessor {
+    @Override
+    protected void process() {
+        System.out.println("Processing CSV data");
+    }
+}
+
+// Concrete Class: JSON Data Processor
+class JSONDataProcessor extends DataProcessor {
+    @Override
+    protected void process() {
+        System.out.println("Processing JSON data");
+    }
+}
+```
+
+3. Client Code
+   
+``` java
+ // Client Code
+public class TemplatePatternExample2 {
+    public static void main(String[] args) {
+        System.out.println("Processing CSV File:");
+        DataProcessor csvProcessor = new CSVDataProcessor();
+        csvProcessor.processData();
+
+        System.out.println("\nProcessing JSON File:");
+        DataProcessor jsonProcessor = new JSONDataProcessor();
+        jsonProcessor.processData();
+    }
+}
+```
   
 
 
