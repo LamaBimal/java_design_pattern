@@ -525,6 +525,108 @@ public class TemplatePatternExample2 {
     }
 }
 ```
+
+## Visitor Design Pattern
+
+The Visitor Design Pattern is a behavioral design pattern which allows additional functionality to objects without modifying them.  It is commonly used when you have a structure of objects, such as a tree or a composite object, and you want to perform various unrelated operations on these objects without changing their structure or classes
+
+### Components
+1. **Visitor:** An interface or abstract class that declares the methods for visiting each type of concrete element.
+```java
+   interface Visitor {
+    void visit(Circle circle);
+    void visit(Rectangle rectangle);
+   }
+```
+2. **Concrete Visitor:** A class implementing the visitor interface containing the logic of the operations peformed on elements.
+```java
+class AreaCalculator implements Visitor {
+    @Override
+    public void visit(Circle circle) {
+        double area = Math.PI * Math.pow(circle.getRadius(), 2);
+        System.out.println("Circle Area: " + area);
+    }
+
+    @Override
+    public void visit(Rectangle rectangle) {
+        double area = rectangle.getWidth() * rectangle.getHeight();
+        System.out.println("Rectangle Area: " + area);
+    }
+}
+
+```   
+3. **Element:** An interface or abstract class that declares an accept method, which takes visitor as an argument.
+```java
+   interface Shape {
+    void accept(Visitor visitor);
+   }
+```
+4. **Concrete Element:** The concrete classes are the implementation class of Element. They represents the objects in the structure.
+```java
+class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+}
+
+class Rectangle implements Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+}
+
+```   
+5. **Object Structure:** A collection of elements that can be iterated and visited by the visitor.
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class VisitorPatternDemo {
+    public static void main(String[] args) {
+        // List of shapes
+        List<Shape> shapes = new ArrayList<>();
+        shapes.add(new Circle(5));
+        shapes.add(new Rectangle(4, 6));
+
+        // Create a visitor
+        Visitor areaCalculator = new AreaCalculator();
+
+        // Apply the visitor to each shape
+        for (Shape shape : shapes) {
+            shape.accept(areaCalculator);
+        }
+    }
+}
+
+```
   
 
 
