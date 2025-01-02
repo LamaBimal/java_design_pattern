@@ -627,6 +627,30 @@ public class VisitorPatternDemo {
 }
 
 ```
+
+## State Design Pattern
+
+The State Design Pattern is the hehavioral design pattern that allows an object to alter its behavior when its internal state changes. The object appears to change its class by delegating state-specific behavior
+to different state objects.
+
+### Key Features:
+1. Encapsulation of States:
+- state specific behavior is encapsulated in a separate classes.
   
+2. Dynamic Behavior
+- The object behavior changes dynamically as it transition between two states.
+  
+3. Open/Closed Principle
+- Adding new state doesn't require modifying the existing states or the context.
 
+### Components
 
+1. State Interface:
+- Define the behavior that each state must implement.
+
+2. Concrete Classes:
+- Implement the behavior specific to a particular state.
+
+3. Context
+- Maintains a reference to the current state and allows state transitions.
+  
