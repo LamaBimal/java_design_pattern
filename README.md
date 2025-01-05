@@ -653,4 +653,18 @@ to different state objects.
 
 3. Context
 - Maintains a reference to the current state and allows state transitions.
+
+  # Structural Design Pattern
+  Structural design pattern is the design pattern that focus on the composition of classes or object. They help to simplify the design by structuring the relationship between components in a way that makes the system more flexible and scalable.
   
+  ## Adapter Design Pattern
+
+  The Adapter design pattern is a structural design pattern that allows you to adapt one interface to another, making classes with incompatible interfaces work
+  together. This pattern is used when you want to use the an existing class but its interface doesn't compatible with the one you need.
+
+  ### Components
+  1. Target: This is the interface that client expects.
+  2. Adapter: This class implements the target interface and works as a bridge between the client and adaptee.
+  3. Adaptee: This is the class with the exisiting interface, which is incompatible with the clients desired interface.
+  4. Client: The class that uses the adapter to interact with Adaptee.
+     
