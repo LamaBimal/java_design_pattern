@@ -664,7 +664,45 @@ to different state objects.
 
   ### Components
   1. Target: This is the interface that client expects.
+  ```java
+  interface Charger {
+    void chargeWithUSBTypeC();
+  }
+  ```
   2. Adapter: This class implements the target interface and works as a bridge between the client and adaptee.
+  ```java
+  class ChargerAdapter implements Charger {
+    private OldCharger oldCharger;
+
+    public ChargerAdapter(OldCharger oldCharger) {
+        this.oldCharger = oldCharger;
+    }
+
+    @Override
+    public void chargeWithUSBTypeC() {
+        // Adapting the old charger to use with USB-C
+        oldCharger.chargeWithMicroUSB();
+    }
+  }
+  ```
   3. Adaptee: This is the class with the exisiting interface, which is incompatible with the clients desired interface.
+  ```java
+  class OldCharger {
+    public void chargeWithMicroUSB() {
+        System.out.println("Charging with Micro USB.");
+    }
+  }
+  ```
   4. Client: The class that uses the adapter to interact with Adaptee.
-     
+   ```java
+    public class Client {
+    public static void main(String[] args) {
+        OldCharger oldCharger = new OldCharger();
+        Charger charger = new ChargerAdapter(oldCharger); // Adapter is used here
+
+        // The client uses the adapter to charge with USB-C
+        charger.chargeWithUSBTypeC();
+    }
+  }
+   
+  ```  
