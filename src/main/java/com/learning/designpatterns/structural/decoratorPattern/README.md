@@ -7,9 +7,9 @@
 1. Component:
    - An interface or abstract class that defines the methods that will be implemented or extended by concrete components and decorators.
 2. Concrete Component:
-  - The base implementation of the component interface. This is the class that will have additional responsibilities added to it by decorators. 
+   - The base implementation of the component interface. This is the class that will have additional responsibilities added to it by decorators. 
 3. Decorator:
-  - An abstract class that implements the component interface and contains a reference to a component object. It can be used to define wrapper methods that enhance or override the behavior of the component.
+   - An abstract class that implements the component interface and contains a reference to a component object. It can be used to define wrapper methods that enhance or override the behavior of the component.
      
 4. Concrete Decorator:
-5. -  Extends the decorator class and adds additional functionality to the component.
+   -  Extends the decorator class and adds additional functionality to the component.
